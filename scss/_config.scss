@@ -1,4 +1,17 @@
 $light-color: rgb(147, 147, 165);
-$main-color: rgb(198, 132, 143);
+$main-color: rgb(51, 14, 20);
 $secondary-color: purple;
 $font-stack: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+@function set-text-color($color) {
+    @if(lightness($color) > 50) {
+        @return black;
+    } @else {
+        @return white;
+    }
+}
+
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-color($color);
+}
